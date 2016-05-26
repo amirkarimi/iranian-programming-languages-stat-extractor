@@ -27,7 +27,7 @@ object Hello {
     }
     
     // Group by language name and return the count of each one
-    val groupedItems = splittedItems.groupBy(identity) map { case (key, items) =>
+    val groupedItems = splittedItems.filter(_.nonEmpty).groupBy(identity) map { case (key, items) =>
       (key, items.length)
     }
     
